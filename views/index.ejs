@@ -1,2 +1,52 @@
-<h1>Mina kurser</h1>
-<p>Välkommen till mitt digitala CV!</p>
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mina kurser</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+
+<body>
+    <header>
+        <h1>Mitt digitala CV</h1>
+
+        <nav>
+            <a href="/">Mina kurser</a>
+            <a href="/add">Lägg till kurs</a>
+            <a href="/about">Om sidan</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Mina kurser</h2>
+
+        <% if (courses.length === 0) { %>
+        <p>Inga kurser har lagts till ännu.</p>
+        <% } else { %>
+
+            <ul class="course-list">
+                <% courses.forEach(course => { %>
+                <li>
+                    <h3><%= course.coursename %></h3>
+
+                    <p>Kurskod: <%= course.coursecode %></p>
+
+                    <p>Progression: <%= course.progression %></p>
+
+                    <a href="<%= course.syllabus %>"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                         Visa kursplan
+                    </a>
+                </li>
+                <% }); %>
+            </ul>
+
+            <% } %>
+    </main>
+    
+</body>
+</html>
