@@ -5,6 +5,10 @@ Detta projekt är skapat som en del av kursen Beckend-baserad webbutveckling.
 
 Webbplatsen fungerar som ett digitalt CV där användaren kan visa, lägga till och radera kurser. Kursinformationen lagras i en databas.
 
+## Publicerad webbplats
+Webbplatsen finns publicerad på Render:
+[Besök webbplatsen](https://laboration-1-cv.onrender.com/)
+
 ## Tekniker
 - Node.js
 - Express
