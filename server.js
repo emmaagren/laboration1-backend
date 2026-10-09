@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const initDatabase = require("./database");
 
 const app = express();
 const PORT = 3000;
@@ -28,7 +29,19 @@ app.get("/about", (req, res) => {
     res.render("about");
 });
 
-// Starta servern
-app.listen(PORT, () => {
-    console.log(`Servern körs på http://localhost:${PORT}`);
-});
+// Starta databasen innan servern
+async function startServer() {
+    try {
+        const db = await initDatabase();
+        app.locals.db = db;
+
+        app.listen(PORT, () => {
+            console.log(`Servern körs på http://localhost:${PORT}`);
+            console.log("Databasen är ansluten!");
+        });
+    } catch (error) {
+        console.error("Kunde inte starta servern:", error);
+    }
+}
+
+startServer();
