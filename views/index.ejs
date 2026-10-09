@@ -23,30 +23,39 @@
     <main>
         <h2>Mina kurser</h2>
 
-        <% if (courses.length === 0) { %>
-        <p>Inga kurser har lagts till ännu.</p>
-        <% } else { %>
+        <% if (courses.length===0) { %>
+            <p>Inga kurser har lagts till ännu.</p>
+            <% } else { %>
 
-            <ul class="course-list">
-                <% courses.forEach(course => { %>
-                <li>
-                    <h3><%= course.coursename %></h3>
+                <ul class="course-list">
+                    <% courses.forEach(course=> { %>
+                        <li>
+                            <h3>
+                                <%= course.coursename %>
+                            </h3>
 
-                    <p>Kurskod: <%= course.coursecode %></p>
+                            <p>Kurskod: <%= course.coursecode %>
+                            </p>
 
-                    <p>Progression: <%= course.progression %></p>
+                            <p>Progression: <%= course.progression %>
+                            </p>
 
-                    <a href="<%= course.syllabus %>"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                         Visa kursplan
-                    </a>
-                </li>
-                <% }); %>
-            </ul>
+                            <a href="<%= course.syllabus %>" target="_blank" rel="noopener noreferrer">
+                                Visa kursplan
+                            </a>
+                            <form action="/delete/ <%= course.id %>" method="POST">
+                                <button type="submit" onclick="return confirm('Vill du verkligen radera kursen?')">
+                                    Radera kurs
+                                </button>
+                            </form>
 
-            <% } %>
+                        </li>
+                        <% }); %>
+                </ul>
+
+                <% } %>
     </main>
-    
+
 </body>
+
 </html>

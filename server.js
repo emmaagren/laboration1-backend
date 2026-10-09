@@ -98,6 +98,32 @@ app.post("/add", async (req, res) => {
 
 });
 
+// Radera en kurs från databasen
+app.post("/delete/:id", async (req, res) => {
+    try {
+        const db = req.app.locals.db;
+        const id = Number(req.params.id);
+
+        // Kontrollera att kursens ID är giltigt
+        if (!Number.isSafeInteger(id) || id <= 0) {
+            return res.status(400).send("Ogiltigt kurs-ID");
+        }
+
+        // Radera kursen med angivet ID
+        await db.run(
+            "DELETE FROM courses WHERE id = ?",
+            [id]
+        );
+
+        // Gå tillbaka till startsidan
+        res.redirect("/");
+
+    } catch (error) {
+        console.error("Fel vid radering av kurs:", error);
+        res.status(500).send("Kursen kunde inte raderas.");
+    }
+});
+
 
 // Om sidan
 app.get("/about", (req, res) => {
