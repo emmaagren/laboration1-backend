@@ -1,1 +1,67 @@
-<h1>Om webbplatsen</h1>
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Om webbplatsen</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Mitt digitala CV</h1>
+
+        <nav>
+            <a href="/">Mina kurser</a>
+            <a href="/add">Lägg till kurs</a>
+            <a href="/about">Om sidan</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Syfte</h2>
+            <p>
+                Den här webbplatsen har skapats som en del av
+                laboration 1 i kursen Backend-baserad webbutveckling.
+                Syftet är att skapa ett databasbaserat CV där
+                användaren kan lägga till, visa och radera kurser.
+            </p>
+        </section>
+
+        <section>
+            <h3>Teknik och databas</h3>
+            <p>
+                Webbplatsen är byggd med Node.js och Express.
+                EJS används för att generera HTML på serversidan.
+                Kursinformationen lagras i en SQLite-databas.
+            </p>
+            <p>
+                Databasen innehåller en tabell med kurskod, 
+                kursnamn, kursplan och kursprogression.
+                SQL används för att hämta, lägga till och 
+                radera kurser.
+            </p>
+        </section>
+
+        <section>
+            <h3>Slutsatser</h3>
+            <p>
+                Under arbetet har jag fått en bättre förståelse 
+                för hur serverbaserad webbutveckling fungerar 
+                och hur en webbapplikation kan kommunicera 
+                med en databas.
+            </p>
+            <p>
+                Jag har även fått arbeta med formulärhantering, 
+                validering och SQL-frågot. En viktig lärdom 
+                är att användarens inmatning behöver kontrolleras 
+                på serversidan innan informationen sparas.
+            </p>
+        </section>
+    </main>
+
+</body>
+
+</html>
