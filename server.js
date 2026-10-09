@@ -3,7 +3,7 @@ const path = require("path");
 const initDatabase = require("./database");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Använd EJS som view engine
 app.set("view engine", "ejs");
@@ -125,7 +125,7 @@ app.post("/delete/:id", async (req, res) => {
 });
 
 
-// Om sidan
+// Visa Om-sidan
 app.get("/about", (req, res) => {
     res.render("about");
 });

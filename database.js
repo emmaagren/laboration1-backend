@@ -1,7 +1,7 @@
 const sqlite3 = require("sqlite3");
 const { open } = require("sqlite");
 
-// Öppna databasen och skapa tabelllen om den delen saknas
+// Öppna databasen och skapa tabelllen om den inte finns
 async function initDatabase() {
     const db = await open({
         filename: "./courses.db",
